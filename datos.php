@@ -2,7 +2,7 @@
 // Conexión a la base de datos
 $servername = "localhost";
 $username = "usuario";
-$password = "contraseña";
+$password = obtenerPasswordDeConfiguracion(); // Función para obtener la contraseña desde un archivo de configuración o variable de entorno
 $dbname = "basededatos";
 
 // Crear conexión
@@ -25,6 +25,18 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 resultados";
 }
+
+$conn->close();
+
+// Función para obtener la contraseña desde un archivo de configuración o variable de entorno
+function obtenerPasswordDeConfiguracion() {
+    // Aquí puedes implementar la lógica para obtener la contraseña desde un archivo de configuración externo o variable de entorno
+    // Por ejemplo:
+    // return getenv('DB_PASSWORD'); // Si utilizas variables de entorno
+    // return file_get_contents('/ruta/al/archivo/config.txt'); // Si utilizas un archivo de configuración
+}
+?>
+
 
 $conn->close();
 ?>
